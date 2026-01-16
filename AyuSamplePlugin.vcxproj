@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7ef24677-96f2-4f85-994c-c7ad908c6510}</ProjectGuid>
+    <RootNamespace>AyuSamplePlugin</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;AYUSAMPLEPLUGIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;AYUSAMPLEPLUGIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;AYUSAMPLEPLUGIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;AYUSAMPLEPLUGIN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);WIN32;TDESKTOP_DISABLE_AUTOUPDATE;TDESKTOP_DISABLE_CRASH_REPORTS;TDESKTOP_API_ID=2040;TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627;G_LOG_DOMAIN="Telegram";U_STATIC_IMPLEMENTATION=1;QT_NO_KEYWORDS;QT_NO_CAST_FROM_BYTEARRAY;QT_DEPRECATED_WARNINGS_SINCE=0x051500;DESKTOP_APP_DISABLE_X11_INTEGRATION;WIN32_LEAN_AND_MEAN;_SCL_SECURE_NO_WARNINGS;NOMINMAX;NOSERVICE;NOMCX;NOIME;NOSOUND;NOCOMM;NOKANJI;NORPC;NOPROXYSTUB;NOIMAGE;NOTAPE;UNICODE;_UNICODE;TGCALLS_USE_STD_OPTIONAL;_REENTRANT;QT_STATICPLUGIN;QT_PLUGIN;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_SVG_LIB;_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING;KHRONOS_STATIC;AL_LIBTYPE_STATIC;LOT_BUILD;ZLIB_WINAPI;KCOREADDONS_EXPORT=;XXH_INLINE_ALL;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>L:\ayu\tdesktop\Telegram\SourceFiles\data;L:\ayu\tdesktop\Telegram\SourceFiles;L:\ayu\tdesktop\Telegram\ThirdParty\tgcalls;L:\ayu\tdesktop\Telegram\lib_base;L:\ayu\tdesktop\Telegram\lib_rpl;L:\ayu\tdesktop\Telegram\lib_crl;L:\ayu\tdesktop\Telegram\lib_tl;L:\ayu\tdesktop\Telegram\lib_ui;L:\ayu\tdesktop\Telegram\lib_ui\emoji_suggestions;L:\ayu\tdesktop\Telegram\lib_lottie;L:\ayu\tdesktop\Telegram\lib_webrtc;L:\ayu\tdesktop\Telegram\lib_spellcheck;L:\ayu\tdesktop\Telegram\lib_storage;L:\ayu\tdesktop\Telegram\lib_qr;L:\ayu\tdesktop\Telegram\ThirdParty\QR\cpp;L:\ayu\tdesktop\Telegram\lib_webview;L:\ayu\tdesktop\Telegram\SourceFiles\payments;L:\ayu\tdesktop\Telegram\ThirdParty\rlottie\inc;L:\ayu\tdesktop\Telegram\lib_icu\icu_source\common;L:\ayu\tdesktop\Telegram\lib_icu\icu_source\i18n;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "L:/ayu/tdesktop/out/Telegram/gen" /external:I "L:/ayu/tdesktop/out/Telegram/Telegram_autogen/include_Release" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/minizip" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/GSL/include" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtCore" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtGui" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtWidgets" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtSvg" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtCore/5.15.17" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtGui/5.15.17" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtWidgets/5.15.17" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtCore/5.15.17/QtCore" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtGui/5.15.17/QtGui" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/include/QtWidgets/5.15.17/QtWidgets" /external:I "L:/ayu/Libraries/win64/Qt-5.15.17/mkspecs/win32-msvc" /external:I "L:/ayu/Libraries/win64/tg_angle/include" /external:I "L:/ayu/Libraries/win64/openssl3/include" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/range-v3/include" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/expected/include" /external:I "L:/ayu/tdesktop/out/Telegram/lib_ui/gen" /external:I "L:/ayu/Libraries/win64/ffmpeg" /external:I "L:/ayu/Libraries/win64/openal-soft/include" /external:I "L:/ayu/Libraries/win64/openal-soft/include/AL" /external:I "L:/ayu/Libraries/win64/zlib" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/kcoreaddons/src/lib/io" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/kcoreaddons/src/lib/util" /external:I "L:/ayu/tdesktop/cmake/external/kcoreaddons/headers/public" /external:I "L:/ayu/tdesktop/Telegram/ThirdParty/xxHash" /utf-8 /w15038 /w14265 /Zc:__cplusplus /bigobj</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <DisableSpecificWarnings>4018;4100;4242;4244;4245;4267;4305;4324;4389;4456;4457;4458;4459;4611;4702;4310;4127;4996</DisableSpecificWarnings>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <DelayLoadDLLs>
+      </DelayLoadDLLs>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>L:\ayu\Libraries\win64\Qt-5.15.17\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>L:\ayu\tdesktop\out\cmake\external\qt\qt_static_plugins\kimageformats\external_qt_static_plugins_kimageformats_init.dir\MinSizeRel\init.obj;L:\ayu\tdesktop\out\Telegram\MinSizeRel\lib_tgcalls.lib;L:\ayu\tdesktop\out\Telegram\lib_base\MinSizeRel\lib_base.lib;L:\ayu\tdesktop\out\Telegram\lib_ui\MinSizeRel\lib_ui.lib;L:\ayu\tdesktop\out\Telegram\lib_spellcheck\MinSizeRel\lib_spellcheck.lib;L:\ayu\tdesktop\out\Telegram\lib_webview\MinSizeRel\lib_webview.lib;L:\ayu\Libraries\win64\zlib\Release\zlibstatic.lib;L:\ayu\tdesktop\out\Telegram\lib_icu\MinSizeRel\icu_regex_minimal.lib;L:\ayu\tdesktop\out\cmake\win_directx_helper\MinSizeRel\win_directx_helper.lib;delayimp.lib;L:\ayu\tdesktop\out\cmake\external\minizip\MinSizeRel\external_minizip_bundled.lib;L:\ayu\Libraries\win64\rnnoise\out\Release\rnnoise.lib;L:\ayu\Libraries\win64\openal-soft\build\RelWithDebInfo\OpenAL32.lib;L:\ayu\tdesktop\out\cmake\external\cld3\MinSizeRel\external_cld3_bundled.lib;L:\ayu\Libraries\win64\protobuf\build\Release\libprotobuf-lite.lib;L:\ayu\tdesktop\out\cmake\external\hunspell\MinSizeRel\external_hunspell_bundled.lib;L:\ayu\tdesktop\out\Telegram\MinSizeRel\lib_prisma.lib;L:\ayu\tdesktop\out\cmake\external\rlottie\MinSizeRel\external_rlottie_bundled.lib;L:\ayu\Libraries\win64\ffmpeg\libavfilter\libavfilter.a;L:\ayu\Libraries\win64\ffmpeg\libavformat\libavformat.a;L:\ayu\Libraries\win64\ffmpeg\libavcodec\libavcodec.a;L:\ayu\Libraries\win64\ffmpeg\libswresample\libswresample.a;L:\ayu\Libraries\win64\ffmpeg\libswscale\libswscale.a;L:\ayu\Libraries\win64\ffmpeg\libavutil\libavutil.a;L:\ayu\tdesktop\out\cmake\external\kcoreaddons\MinSizeRel\external_kcoreaddons_bundled.lib;L:\ayu\Libraries\win64\tg_owt\out\Release\tg_owt.lib;L:\ayu\Libraries\win64\openh264\builddir-release\libopenh264.a;L:\ayu\Libraries\win64\opus\out\Release\opus.lib;L:\ayu\Libraries\win64\local\lib\x64\vpxmt.lib;Secur32.lib;L:\ayu\tdesktop\out\cmake\external\lz4\MinSizeRel\external_lz4_bundled.lib;L:\ayu\tdesktop\out\packages\Microsoft.Web.WebView2\build\native\x64\WebView2LoaderStatic.lib;L:\ayu\Libraries\win64\ada\out\singleheader\Release\ada-singleheader-lib.lib;L:\ayu\Libraries\win64\tde2e\out\Release\tde2e\Release\tde2e.lib;L:\ayu\Libraries\win64\tde2e\out\Release\tdutils\Release\tdutils.lib;Psapi.lib;Normaliz.lib;L:\ayu\tdesktop\out\cmake\external\qr_code_generator\MinSizeRel\external_qr_code_generator_bundled.lib;L:\ayu\tdesktop\out\cmake\external\qt\qt_static_plugins\kimageformats\MinSizeRel\external_qt_static_plugins_kimageformats.lib;L:\ayu\Libraries\win64\libavif\Release\avif.lib;L:\ayu\Libraries\win64\libheif\libheif\Release\heif.lib;L:\ayu\Libraries\win64\libde265\libde265\Release\libde265.lib;L:\ayu\Libraries\win64\dav1d\builddir-release\src\libdav1d.a;L:\ayu\Libraries\win64\libjxl\lib\Release\jxl.lib;L:\ayu\Libraries\win64\libjxl\lib\Release\jxl_cms.lib;L:\ayu\Libraries\win64\libjxl\lib\Release\jxl_threads.lib;L:\ayu\Libraries\win64\libjxl\third_party\highway\Release\hwy.lib;L:\ayu\Libraries\win64\libjxl\third_party\brotli\Release\brotlidec.lib;L:\ayu\Libraries\win64\libjxl\third_party\brotli\Release\brotlienc.lib;L:\ayu\Libraries\win64\libjxl\third_party\brotli\Release\brotlicommon.lib;L:\ayu\Libraries\win64\mozjpeg\Release\jpeg-static.lib;winmm.lib;imm32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Shlwapi.lib;Iphlpapi.lib;Gdiplus.lib;Strmiids.lib;Netapi32.lib;Userenv.lib;Version.lib;Dwmapi.lib;UxTheme.lib;Wtsapi32.lib;Crypt32.lib;Propsys.lib;Bcrypt.lib;L:\ayu\Libraries\win64\openssl3\out\libssl.lib;L:\ayu\Libraries\win64\openssl3\out\libcrypto.lib;L:\ayu\Libraries\win64\tg_angle\out\Release\tg_angle.lib;dxguid.lib;L:\ayu\Libraries\win64\Qt-5.15.17\plugins\imageformats\qwebp.lib;L:\ayu\Libraries\win64\Qt-5.15.17\plugins\imageformats\qgif.lib;L:\ayu\Libraries\win64\Qt-5.15.17\plugins\imageformats\qjpeg.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5Svg.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5Network.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5Widgets.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5Gui.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5Core.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\qtharfbuzz.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\qtlibpng.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\qtpcre2.lib;L:\ayu\Libraries\win64\Qt-5.15.17\plugins\platforms\qwindows.lib;L:\ayu\Libraries\win64\Qt-5.15.17\plugins\bearer\qgenericbearer.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5AccessibilitySupport.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5FontDatabaseSupport.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5EventDispatcherSupport.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5ThemeSupport.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\Qt5WindowsUIAutomationSupport.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\qtmain.lib;L:\ayu\Libraries\win64\Qt-5.15.17\lib\qtfreetype.lib;L:\ayu\Libraries\win64\libwebp\out\release-static\x64\lib\libwebp.lib;L:\ayu\Libraries\win64\libwebp\out\release-static\x64\lib\libwebpdemux.lib;L:\ayu\Libraries\win64\libwebp\out\release-static\x64\lib\libwebpmux.lib;L:\ayu\tdesktop\out\Telegram\MinSizeRel\AyuGram.lib</AdditionalDependencies>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>L:\ayu\tdesktop\Telegram\Resources\winrc\Telegram.manifest;</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AyuPlugin.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
