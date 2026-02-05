@@ -1,5 +1,6 @@
 # AyuSamplePlugin
 An example of an Ayugram Desktop plugin for AyuGram Desktop Plugin Engine
+[Read the docs for more info](https://github.com/MrCheatEugene/AyuGramDesktop-PLEngine/blob/dev/README-pluginEngine.md)
 
 # Useful info
 - DllMain should return for plugin to Load
