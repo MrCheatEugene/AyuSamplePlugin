@@ -1,5 +1,5 @@
 # AyuSamplePlugin
-An example of an Ayugram Desktop plugin for AyuGram Desktop Plugin Engine
+An example of an Ayugram Desktop plugin for AyuGram Desktop Plugin Engine <br>
 [Read the docs for more info](https://github.com/MrCheatEugene/AyuGramDesktop-PLEngine/blob/dev/README-pluginEngine.md)
 
 # Useful info
