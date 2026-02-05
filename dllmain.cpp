@@ -6,8 +6,9 @@ Follows GNU GPL v3 and Telegram Desktop licensing.
 
 #include "pch.h"
 #include "AyuPlugin.h"
+#include <history\history.h>
 #include <history\history_item.h>
-
+#include <data\data_user.h>
 AyuPlugin _pluginInfo{
     L"Sample Plugin",
     L"A plugin, demonstrating how AyuGram can accept dynamic-library plugins, and do cool stuff with it.",
@@ -17,9 +18,8 @@ AyuPlugin _pluginInfo{
 }; // end structure
 
 AyuPlugin* _ppluginInfo = &_pluginInfo; // static ptr
-
-EXTERN_DLL_EXPORT AyuPlugin* pluginInfo() { // helper for external access
-    return _ppluginInfo;
+EXTERN_DLL_EXPORT InternalPluginInfo pluginInfo() { // helper for external access
+    return (InternalPluginInfo)_ppluginInfo;
 }
 
 EXTERN_DLL_EXPORT InternalLoop internalLoop() {
@@ -27,19 +27,52 @@ EXTERN_DLL_EXPORT InternalLoop internalLoop() {
     while (1) {
         if (_pluginInfo.memData.activeUserPtr != NULL && !showedMemData) {
             showedMemData = true;
-            Beep(2000, 1000);
-            char addrv[128];
-            sprintf(addrv, "%p", _pluginInfo.memData.activeUserPtr);
-            wchar_t a[128];
-            mbstowcs(a, addrv, 128);
-            MessageBox(NULL, a, L"MemData active User Ptr", MB_OK);
+            try {
+                UserData* auP = (UserData*)_pluginInfo.memData.activeUserPtr; // TODO: Figure out cross-thread QT access. Code below will not build, and if it does - QString is thread-specific. 
+                //auto u = auP->username()
+                //wchar_t a[128];
+                //mbstowcs(a, u.c_str(), u.length()-1);
+                //MessageBox(NULL, a, L"MemData active User Ptr", MB_OK);
+            }
+            catch (...) {
+                MessageBox(NULL, L"Failed ptr usage", L"MemData active User Ptr", MB_OK);
+            }
         }
         Sleep(1000);
     }
 }
 
-EXTERN_DLL_EXPORT InternalDoFilterHistoryItem doFilterHistoryItem(HistoryItem* HistoryItem) {
-    return (InternalDoFilterHistoryItem)(HistoryItem->getText().text.contains("bannedWord"));
+EXTERN_DLL_EXPORT InternalDoPreProcessMessage doPreProcessMessage(char* in, char* out) {
+    // Example of a message override hook
+    std::string i(in);
+    i=std::regex_replace(i, std::regex("hello"), "replaced");
+    strcpy(out, i.c_str());
+    out[4096] = '\0';
+}
+
+DWORD64 GetIdleTimeMs()
+{
+    LASTINPUTINFO lii;
+    lii.cbSize = sizeof(LASTINPUTINFO);
+
+    if (!GetLastInputInfo(&lii))
+        return (DWORD64)-1;
+
+    return GetTickCount64() - lii.dwTime;
+}
+
+EXTERN_DLL_EXPORT InternalIsOnline doReturnIsOnline()
+{
+    /*
+        Example function that demonstrates Online hook
+    */
+    const DWORD64 IDLE_LIMIT_MS = 10 * 1000; // 10 seconds
+
+    DWORD64 idleMs = GetIdleTimeMs();
+    if (idleMs == (DWORD64)-1)
+        return (InternalIsOnline)false;
+
+    return (InternalIsOnline)(idleMs < IDLE_LIMIT_MS);
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
